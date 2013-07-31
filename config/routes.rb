@@ -58,11 +58,14 @@ Readit::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  resources :pages
+  resources :pages 
+    
   
   resources :links do
     resources :comments
   end
+
+  match 'search' => 'pages#search'
 
   root to: "pages#index"
 end
